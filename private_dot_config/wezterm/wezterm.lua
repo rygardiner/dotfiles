@@ -18,7 +18,7 @@ config.initial_rows = 56
 
 -- or, changing the font size and color scheme.
 config.font_size = 20
-config.color_scheme = 'Tokyo Night'
+config.color_scheme = 'Gruvbox Dark (Gogh)'
 
 -- Finally, return the configuration to wezterm:
 return config
