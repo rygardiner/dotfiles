@@ -1,6 +1,5 @@
 require("config.lazy")
 require("gardo")
-print("hello")
 
 vim.opt.list = true
 vim.opt.listchars = { tab = '→ ', space = '·', trail = '~' }

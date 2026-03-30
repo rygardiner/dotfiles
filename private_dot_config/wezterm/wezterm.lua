@@ -6,6 +6,8 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices.
 
+config.window_background_opacity = 0.85
+
 -- Use bash v5
 config.default_prog = { '/opt/homebrew/bin/bash' }
 
