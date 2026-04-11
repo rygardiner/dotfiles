@@ -8,8 +8,8 @@ local config = wezterm.config_builder()
 
 config.window_background_opacity = 0.85
 
--- Use bash v5
-config.default_prog = { '/opt/homebrew/bin/bash' }
+-- Use PowerShell
+config.default_prog = { '/usr/local/bin/pwsh' }
 
 -- Disable the tab bar
 config.enable_tab_bar = false
