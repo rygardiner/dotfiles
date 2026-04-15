@@ -1,0 +1,150 @@
+@import 'https://www.nerdfonts.com/assets/css/webfont.css';
+
+:root {
+  --gb-bg: rgba(29, 32, 33, 0.78);
+  --gb-bg-solid: #1d2021;
+  --gb-bg1: #3c3836;
+  --gb-bg2: #504945;
+  --gb-bg3: #665c54;
+  --gb-fg: #ebdbb2;
+  --gb-fg-dim: #a89984;
+  --gb-red: #fb4934;
+  --gb-green: #b8bb26;
+  --gb-yellow: #fabd2f;
+  --gb-blue: #83a598;
+  --gb-purple: #d3869b;
+  --gb-aqua: #8ec07c;
+  --gb-orange: #fe8019;
+
+  --pill-radius: 6px;
+  --gap: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font',
+               'Cascadia Code', ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--gb-fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { height: 100%; }
+
+.app {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--gap);
+  padding: 0 12px;
+  background: var(--gb-bg);
+  border-bottom: 1px solid var(--gb-bg1);
+  backdrop-filter: blur(6px);
+}
+
+.left, .center, .right {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.left { justify-self: start; }
+.center { justify-self: center; color: var(--gb-purple); }
+.right { justify-self: end; }
+
+.logo {
+  color: var(--gb-blue);
+  font-size: 15px;
+  padding: 0 4px;
+}
+
+.workspaces {
+  display: flex;
+  gap: 4px;
+}
+
+.workspace {
+  appearance: none;
+  background: transparent;
+  color: var(--gb-fg-dim);
+  border: 1px solid var(--gb-bg2);
+  border-radius: var(--pill-radius);
+  padding: 3px 10px;
+  font: inherit;
+  cursor: pointer;
+  transition: background 120ms, color 120ms, border-color 120ms;
+}
+.workspace:hover {
+  background: var(--gb-bg1);
+  color: var(--gb-fg);
+}
+.workspace.displayed {
+  color: var(--gb-fg);
+  border-color: var(--gb-bg3);
+}
+.workspace.focused {
+  background: var(--gb-aqua);
+  color: var(--gb-bg-solid);
+  border-color: var(--gb-aqua);
+  font-weight: 600;
+}
+
+.tiling-direction,
+.paused-button,
+.binding-mode {
+  appearance: none;
+  background: var(--gb-bg1);
+  color: var(--gb-orange);
+  border: 1px solid var(--gb-bg2);
+  border-radius: var(--pill-radius);
+  padding: 3px 8px;
+  font: inherit;
+  cursor: pointer;
+  line-height: 1;
+}
+.tiling-direction { font-size: 14px; padding: 2px 8px; }
+.paused-button { color: var(--gb-red); font-weight: 600; }
+.binding-mode { color: var(--gb-yellow); }
+
+.tiling-direction:hover,
+.paused-button:hover,
+.binding-mode:hover {
+  background: var(--gb-bg2);
+}
+
+.right > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 6px;
+}
+
+.network { color: var(--gb-blue); }
+.memory { color: var(--gb-aqua); }
+.cpu { color: var(--gb-green); }
+.cpu .high-usage { color: var(--gb-red); font-weight: 600; }
+.battery { color: var(--gb-green); }
+.battery .charging-icon { color: var(--gb-yellow); }
+.weather { color: var(--gb-blue); }
+
+.clock {
+  color: var(--gb-yellow);
+  font-weight: 600;
+  padding-left: 4px;
+  border-left: 1px solid var(--gb-bg2);
+  margin-left: 4px;
+}
+
+.media {
+  color: var(--gb-purple);
+  max-width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
