@@ -22,6 +22,15 @@
       const WEATHER_LATITUDE = 42.9814;
       const WEATHER_LONGITUDE = -70.9478;
 
+      // Per-workspace tint applied when the workspace is NOT focused.
+      // Use this to differentiate workspaces that share the same icon glyph.
+      const WORKSPACE_COLORS = {
+        '1': 'var(--gb-purple)',
+        '2': 'var(--gb-blue)',
+        '3': 'var(--gb-blue)',
+        '4': 'var(--gb-purple)',
+      };
+
       const providers = zebar.createProviderGroup({
         glazewm: { type: 'glazewm' },
         date: { type: 'date', formatting: 'EEE MMM d  h:mm a' },
@@ -101,15 +110,21 @@
               <i className="logo nf nf-fa-coffee"></i>
               {output.glazewm && (
                 <div className="workspaces">
-                  {output.glazewm.currentWorkspaces.map(ws => (
-                    <button
-                      key={ws.name}
-                      className={`workspace ${ws.hasFocus ? 'focused' : ''} ${ws.isDisplayed ? 'displayed' : ''}`}
-                      onClick={() => output.glazewm.runCommand(`focus --workspace ${ws.name}`)}
-                    >
-                      {ws.displayName ?? ws.name}
-                    </button>
-                  ))}
+                  {output.glazewm.currentWorkspaces.map(ws => {
+                    const dn = ws.displayName;
+                    const isIcon = typeof dn === 'string' && /^nf-[a-z]+-[\w]+$/.test(dn);
+                    const tint = !ws.hasFocus ? WORKSPACE_COLORS[ws.name] : undefined;
+                    return (
+                      <button
+                        key={ws.name}
+                        className={`workspace ${ws.hasFocus ? 'focused' : ''} ${ws.isDisplayed ? 'displayed' : ''}`}
+                        style={tint ? { color: tint } : undefined}
+                        onClick={() => output.glazewm.runCommand(`focus --workspace ${ws.name}`)}
+                      >
+                        {isIcon ? <i className={`nf ${dn}`}></i> : (dn ?? ws.name)}
+                      </button>
+                    );
+                  })}
                 </div>
               )}
               {output.glazewm && (
