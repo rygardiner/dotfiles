@@ -127,7 +127,7 @@ workspaces:
   - { name: '4', display_name: 'nf-md-microsoft_visual_studio_code' }
   - name: '5'
   - name: '6'
-  - name: '7'
+  - { name: '7', display_name: 'nf-md-webcam' }
   - name: '8'
   - name: '9'
 
