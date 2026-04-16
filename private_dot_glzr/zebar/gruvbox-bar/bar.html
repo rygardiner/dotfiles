@@ -144,12 +144,6 @@
             </div>
 
             <div className="right">
-              {output.weather && (
-                <div className="weather">
-                  {weatherIcon(output.weather)}
-                  {Math.round(output.weather.fahrenheitTemp)}°F
-                </div>
-              )}
               {output.network && (
                 <div className="network">
                   {networkIcon(output.network)}
@@ -158,7 +152,7 @@
               )}
               {output.cpu && (
                 <div className="cpu">
-                  <i className="nf nf-oct-cpu"></i>
+                  <i className="nf nf-fa-brain"></i>
                   <span className={output.cpu.usage > 85 ? 'high-usage' : ''}>
                     {Math.round(output.cpu.usage)}%
                   </span>
@@ -166,7 +160,7 @@
               )}
               {output.memory && (
                 <div className="memory">
-                  <i className="nf nf-fae-chip"></i>
+                  <i className="nf nf-md-sheep"></i>
                   {Math.round(output.memory.usage)}%
                 </div>
               )}
@@ -177,6 +171,12 @@
                   )}
                   {batteryIcon(output.battery)}
                   {Math.round(output.battery.chargePercent)}%
+                </div>
+              )}
+              {output.weather && (
+                <div className="weather">
+                  {weatherIcon(output.weather)}
+                  {Math.round(output.weather.fahrenheitTemp)}°F
                 </div>
               )}
               {output.date && <div className="clock">{output.date.formatted}</div>}

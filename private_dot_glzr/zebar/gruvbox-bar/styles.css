@@ -131,14 +131,17 @@ html, body {
 .cpu .high-usage { color: var(--gb-red); font-weight: 600; }
 .battery { color: var(--gb-green); }
 .battery .charging-icon { color: var(--gb-yellow); }
-.weather { color: var(--gb-blue); }
+
+.weather {
+  color: var(--gb-blue);
+  padding-left: 8px;
+  border-left: 1px solid var(--gb-bg2);
+  margin-left: 4px;
+}
 
 .clock {
   color: var(--gb-yellow);
   font-weight: 600;
-  padding-left: 4px;
-  border-left: 1px solid var(--gb-bg2);
-  margin-left: 4px;
 }
 
 .media {
