@@ -18,9 +18,9 @@
       import { createRoot } from 'https://esm.sh/react-dom@18/client?dev';
       import * as zebar from 'https://esm.sh/zebar@3.0';
 
-      // Set latitude/longitude to enable the weather widget. Leave null to hide it.
-      const WEATHER_LATITUDE = null;
-      const WEATHER_LONGITUDE = null;
+      // Exeter, NH 03833
+      const WEATHER_LATITUDE = 42.9814;
+      const WEATHER_LONGITUDE = -70.9478;
 
       const providers = zebar.createProviderGroup({
         glazewm: { type: 'glazewm' },
@@ -147,7 +147,7 @@
               {output.weather && (
                 <div className="weather">
                   {weatherIcon(output.weather)}
-                  {Math.round(output.weather.celsiusTemp)}°C
+                  {Math.round(output.weather.fahrenheitTemp)}°F
                 </div>
               )}
               {output.network && (
