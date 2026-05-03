@@ -121,13 +121,13 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
-  - { name: '1', display_name: 'nf-dev-slack' }
-  - { name: '2', display_name: 'nf-cod-terminal_powershell' }
-  - { name: '3', display_name: 'nf-md-microsoft_visual_studio_code' }
-  - { name: '4', display_name: 'nf-md-microsoft_visual_studio_code' }
+  - { name: '1', display_name: 'nf-cod-terminal_powershell' }
+  - { name: '2', display_name: 'nf-md-robot_outline' }
+  - { name: '3', display_name: 'nf-md-apple_safari' }
+  - name: '4'
   - name: '5'
   - name: '6'
-  - { name: '7', display_name: 'nf-md-webcam' }
+  - name: '7'
   - name: '8'
   - name: '9'
 

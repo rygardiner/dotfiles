@@ -28,3 +28,9 @@ if ((Get-Command tmux -ErrorAction SilentlyContinue) -and -not $env:TMUX) {
 
 # start zoxide
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
+
+# starship prompt
+Invoke-Expression (&starship init powershell)
+
+# eza 
+function ls { eza --icons $args }

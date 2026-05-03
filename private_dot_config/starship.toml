@@ -1,0 +1,50 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[\ue0b6](fg:#907aa9)\
+$os\
+$username\
+[\ue0b4](bg:#d7827e fg:#907aa9)\
+$directory\
+[\ue0b4](fg:#d7827e bg:#56949f)\
+$git_branch\
+$git_status\
+[\ue0b4](fg:#56949f bg:#ea9d34)\
+$nodejs\
+$rust\
+$golang\
+$php\
+[\ue0b4](fg:#ea9d34 bg:#faf4ed)\
+$time\
+[\ue0b4](fg:#faf4ed)\
+"""
+
+[username]
+show_always = true
+style_user = "bg:#907aa9 fg:#faf4ed"
+style_root = "bg:#907aa9 fg:#faf4ed"
+format = '[$user ]($style)'
+
+[directory]
+style = "bg:#d7827e fg:#faf4ed"
+format = "[ $path ]($style)"
+truncation_length = 3
+
+[git_branch]
+symbol = ""
+style = "bg:#56949f fg:#faf4ed"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#56949f fg:#faf4ed"
+format = '[$all_status$ahead_behind ]($style)'
+
+[time]
+disabled = false
+time_format = "%I:%M %p"
+style = "bg:#faf4ed fg:#575279"
+format = '[ $time ]($style)'
+
+[character]
+success_symbol = '[→](fg:#907aa9)'
+error_symbol = '[→](fg:#b4637a)'

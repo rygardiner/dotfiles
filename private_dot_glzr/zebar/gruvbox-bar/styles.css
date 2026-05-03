@@ -1,21 +1,23 @@
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 :root {
-  --gb-bg: rgba(29, 32, 33, 0.78);
-  --gb-bg-solid: #1d2021;
-  --gb-bg1: #3c3836;
-  --gb-bg2: #504945;
-  --gb-bg3: #665c54;
-  --gb-fg: #ebdbb2;
-  --gb-fg-dim: #a89984;
-  --gb-red: #fb4934;
-  --gb-green: #b8bb26;
-  --gb-yellow: #fabd2f;
-  --gb-blue: #83a598;
-  --gb-purple: #d3869b;
-  --gb-aqua: #8ec07c;
-  --gb-orange: #fe8019;
-
+  /* Rose Pine Dawn */
+  --rp-base: rgba(250, 244, 237, 0.88);
+  --rp-base-solid: #faf4ed;
+  --rp-surface: #fffaf3;
+  --rp-overlay: #f2e9e1;
+  --rp-muted: #9893a5;
+  --rp-subtle: #797593;
+  --rp-text: #575279;
+  --rp-love: #b4637a;
+  --rp-gold: #ea9d34;
+  --rp-rose: #d7827e;
+  --rp-pine: #286983;
+  --rp-foam: #56949f;
+  --rp-iris: #907aa9;
+  --rp-highlight-low: #f4ede8;
+  --rp-highlight-med: #dfdad9;
+  --rp-highlight-high: #cecacd;
   --pill-radius: 6px;
   --gap: 10px;
 }
@@ -27,10 +29,10 @@ html, body {
   padding: 0;
   height: 100%;
   overflow: hidden;
-  font-family: 'JetBrainsMono Nerd Font', 'FiraCode Nerd Font',
-               'Cascadia Code', ui-monospace, monospace;
+  font-family: 'Maple Mono NF', 'JetBrainsMono Nerd Font',
+               ui-monospace, monospace;
   font-size: 13px;
-  color: var(--gb-fg);
+  color: var(--rp-text);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -43,8 +45,8 @@ html, body {
   align-items: center;
   gap: var(--gap);
   padding: 0 12px;
-  background: var(--gb-bg);
-  border-bottom: 1px solid var(--gb-bg1);
+  background: var(--rp-base);
+  border-bottom: 1px solid var(--rp-highlight-med);
   backdrop-filter: blur(6px);
 }
 
@@ -55,11 +57,11 @@ html, body {
 }
 
 .left { justify-self: start; }
-.center { justify-self: center; color: var(--gb-purple); }
+.center { justify-self: center; color: var(--rp-iris); }
 .right { justify-self: end; }
 
 .logo {
-  color: var(--gb-blue);
+  color: var(--rp-iris);
   font-size: 15px;
   padding: 0 4px;
 }
@@ -72,26 +74,30 @@ html, body {
 .workspace {
   appearance: none;
   background: transparent;
-  color: var(--gb-fg-dim);
-  border: 1px solid var(--gb-bg2);
+  color: var(--rp-muted);
+  border: 1px solid var(--rp-highlight-med);
   border-radius: var(--pill-radius);
   padding: 3px 10px;
   font: inherit;
   cursor: pointer;
   transition: background 120ms, color 120ms, border-color 120ms;
 }
+
 .workspace:hover {
-  background: var(--gb-bg1);
-  color: var(--gb-fg);
+  background: var(--rp-overlay);
+  color: var(--rp-text);
 }
+
 .workspace.displayed {
-  color: var(--gb-fg);
-  border-color: var(--gb-bg3);
+  color: var(--rp-text);
+  border-color: var(--rp-highlight-high);
 }
+
+/* Active workspace — iris/lavender, consistent with tmux */
 .workspace.focused {
-  background: var(--gb-aqua);
-  color: var(--gb-bg-solid);
-  border-color: var(--gb-aqua);
+  background: var(--rp-iris);
+  color: var(--rp-base-solid);
+  border-color: var(--rp-iris);
   font-weight: 600;
 }
 
@@ -99,23 +105,24 @@ html, body {
 .paused-button,
 .binding-mode {
   appearance: none;
-  background: var(--gb-bg1);
-  color: var(--gb-orange);
-  border: 1px solid var(--gb-bg2);
+  background: var(--rp-overlay);
+  color: var(--rp-rose);
+  border: 1px solid var(--rp-highlight-med);
   border-radius: var(--pill-radius);
   padding: 3px 8px;
   font: inherit;
   cursor: pointer;
   line-height: 1;
 }
+
 .tiling-direction { font-size: 14px; padding: 2px 8px; }
-.paused-button { color: var(--gb-red); font-weight: 600; }
-.binding-mode { color: var(--gb-yellow); }
+.paused-button { color: var(--rp-love); font-weight: 600; }
+.binding-mode { color: var(--rp-gold); }
 
 .tiling-direction:hover,
 .paused-button:hover,
 .binding-mode:hover {
-  background: var(--gb-bg2);
+  background: var(--rp-highlight-low);
 }
 
 .right > div {
@@ -125,27 +132,29 @@ html, body {
   padding: 2px 6px;
 }
 
-.network { color: var(--gb-blue); }
-.memory { color: var(--gb-aqua); }
-.cpu { color: var(--gb-green); }
-.cpu .high-usage { color: var(--gb-red); font-weight: 600; }
-.battery { color: var(--gb-green); }
-.battery .charging-icon { color: var(--gb-yellow); }
+/* Right side widgets — each gets a palette color */
+.network { color: var(--rp-pine); }
+.memory { color: var(--rp-foam); }
+.cpu { color: var(--rp-iris); }
+.cpu .high-usage { color: var(--rp-love); font-weight: 600; }
+.battery { color: var(--rp-pine); }
+.battery .charging-icon { color: var(--rp-gold); }
 
 .weather {
-  color: var(--gb-blue);
+  color: var(--rp-foam);
   padding-left: 8px;
-  border-left: 1px solid var(--gb-bg2);
+  border-left: 1px solid var(--rp-highlight-med);
   margin-left: 4px;
 }
 
+/* Clock — rose/peach, consistent with tmux right side */
 .clock {
-  color: var(--gb-yellow);
+  color: var(--rp-rose);
   font-weight: 600;
 }
 
 .media {
-  color: var(--gb-purple);
+  color: var(--rp-iris);
   max-width: 360px;
   white-space: nowrap;
   overflow: hidden;

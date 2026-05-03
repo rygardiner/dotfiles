@@ -1,26 +1,38 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
-
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices.
+-- Theme: Rosé Pine Dawn
+config.color_scheme = 'rose-pine-dawn'
 
-config.window_background_opacity = 0.85
+-- Soft opacity — Dawn is a light theme so 0.92 keeps it airy without washing out
+config.window_background_opacity = 0.92
 
--- Use PowerShell
+-- Font — Maple Mono
+config.font = wezterm.font('Maple Mono NF', { italic = true })
+config.font_size = 20
+
+-- Shell
 config.default_prog = { '/usr/local/bin/pwsh' }
 
--- Disable the tab bar
-config.enable_tab_bar = false
-
--- For example, changing the initial geometry for new windows:
+-- Layout — keeping your geometry
 config.initial_cols = 240
 config.initial_rows = 56
 
--- or, changing the font size and color scheme.
-config.font_size = 20
-config.color_scheme = 'Gruvbox Dark (Gogh)'
+-- Tab bar off
+config.enable_tab_bar = false
 
--- Finally, return the configuration to wezterm:
+-- Soft padding so text doesn't press the edges
+config.window_padding = {
+  left = 16,
+  right = 16,
+  top = 12,
+  bottom = 12,
+}
+
+-- disable top OS bar
+config.window_decorations = "RESIZE"
+
+
 return config
